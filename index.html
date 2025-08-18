@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DRAGON-TV Room</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    iframe {
+      width: 100%;
+      height: 40vh;
+      border: none;
+      display: block;
+    }
+    #name-box {
+      padding: 20px;
+      text-align: center;
+      background: #222;
+      border-top: 2px solid #444;
+    }
+    #name-box input {
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      background: #333;
+      color: #fff;
+      border-radius: 5px;
+      width: 60%;
+    }
+    #name-box button {
+      padding: 10px 14px;
+      margin-top: 10px;
+      background: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+    #chat-area {
+      display: none;
+    }
+    #chat-box {
+      height: 35vh;
+      overflow-y: auto;
+      background: #222;
+      padding: 10px;
+      border-top: 2px solid #444;
+      font-size: 0.95em;
+    }
+    #chat-input {
+      display: flex;
+      background: #111;
+      padding: 10px;
+      border-top: 2px solid #444;
+    }
+    #chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+    #chat-input button {
+      padding: 10px 14px;
+      margin-left: 8px;
+      background: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎬 پلیر آپارات بالا -->
+  <iframe src="https://www.aparat.com/video/video/embed/videohash/abc123/vt/frame" allowfullscreen></iframe>
+
+  <!-- 🧑‍💻 انتخاب اسم کاربر -->
+  <div id="name-box">
+    <h3>اسم خودتو وارد کن:</h3>
+    <input type="text" id="username" placeholder="مثلاً: میلاد">
+    <br>
+    <button onclick="confirmName()">تایید</button>
+  </div>
+
+  <!-- 💬 چت بعد از انتخاب اسم -->
+  <div id="chat-area">
+    <div id="chat-box"></div>
+    <div id="chat-input">
+      <input type="text" id="message" placeholder="پیامتو بنویس...">
+      <button onclick="sendMessage()">ارسال</button>
+    </div>
+  </div>
+
+  <script>
+    let name = "";
+
+    function confirmName() {
+      const input = document.getElementById("username").value.trim();
+      if (input) {
+        name = input;
+        document.getElementById("name-box").style.display = "none";
+        document.getElementById("chat-area").style.display = "block";
+      }
+    }
+
+    function sendMessage() {
+      const msg = document.getElementById("message").value.trim();
+      if (msg && name) {
+        const p = document.createElement("p");
+        p.textContent = name + " : " + msg;
+        document.getElementById("chat-box").appendChild(p);
+        document.getElementById("chat-box").scrollTop = document.getElementById("chat-box").scrollHeight;
+        document.getElementById("message").value = "";
+      }
+    }
+
+    document.getElementById("message").addEventListener("keydown", e => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+
+</body>
+      </html>
