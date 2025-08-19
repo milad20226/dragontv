@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DRAGON-TV Room</title>
+  <title>DRAGON TV</title>
   <style>
     body {
       font-family: sans-serif;
@@ -12,12 +12,36 @@
       margin: 0;
       padding: 0;
     }
-    iframe {
-      width: 100%;
-      height: 40vh;
-      border: none;
-      display: block;
+
+    /* عنوان بالای صفحه */
+    #header {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 20px 0;
+      background: #000;
+      color: crimson;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #444;
     }
+
+    /* پلیر آپارات */
+    .h_iframe-aparat_embed_frame {
+      position: relative;
+    }
+    .h_iframe-aparat_embed_frame .ratio {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .h_iframe-aparat_embed_frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     #name-box {
       padding: 20px;
       text-align: center;
@@ -43,6 +67,7 @@
       font-size: 1em;
       border-radius: 5px;
     }
+
     #chat-area {
       display: none;
     }
@@ -83,8 +108,14 @@
 </head>
 <body>
 
-  <!-- 🎬 پلیر آپارات بالا -->
-  <iframe src="https://www.aparat.com/video/video/embed/videohash/abc123/vt/frame" allowfullscreen></iframe>
+  <!-- 🟥 عنوان DRAGON TV -->
+  <div id="header">DRAGON TV</div>
+
+  <!-- 🎬 پلیر آپارات -->
+  <div class="h_iframe-aparat_embed_frame">
+    <span style="display: block; padding-top: 57%"></span>
+    <iframe src="https://www.aparat.com/video/video/embed/videohash/mnuzz4b/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+  </div>
 
   <!-- 🧑‍💻 انتخاب اسم کاربر -->
   <div id="name-box">
@@ -132,4 +163,4 @@
   </script>
 
 </body>
-      </html>
+        </html>
