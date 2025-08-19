@@ -117,44 +117,6 @@
     <iframe src="https://www.aparat.com/video/video/embed/videohash/mnuzz4b/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
   </div>
 
-  <!-- 🧑‍💻 انتخاب اسم کاربر -->
-  <div id="name-box">
-    <h3>اسم خودتو وارد کن:</h3>
-    <input type="text" id="username" placeholder="مثلاً: میلاد">
-    <br>
-    <button onclick="confirmName()">تایید</button>
-  </div>
-
-  <!-- 💬 چت بعد از انتخاب اسم -->
-  <div id="chat-area">
-    <div id="chat-box"></div>
-    <div id="chat-input">
-      <input type="text" id="message" placeholder="پیامتو بنویس...">
-      <button onclick="sendMessage()">ارسال</button>
-    </div>
-  </div>
-
-  <script>
-    let name = "";
-
-    function confirmName() {
-      const input = document.getElementById("username").value.trim();
-      if (input) {
-        name = input;
-        document.getElementById("name-box").style.display = "none";
-        document.getElementById("chat-area").style.display = "block";
-      }
-    }
-
-    function sendMessage() {
-      const msg = document.getElementById("message").value.trim();
-      if (msg && name) {
-        const p = document.createElement("p");
-        p.textContent = name + " : " + msg;
-        document.getElementById("chat-box").appendChild(p);
-        document.getElementById("chat-box").scrollTop = document.getElementById("chat-box").scrollHeight;
-        document.getElementById("message").value = "";
-      }
     }
 
     document.getElementById("message").addEventListener("keydown", e => {
